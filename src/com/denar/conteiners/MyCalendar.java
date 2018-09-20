@@ -17,8 +17,6 @@ public class MyCalendar extends MouseAdapter implements ActionListener {
 
 	Main main;
 
-// Проба commit
-
 	public Panel panelCalendar, cal, calM, calDaysWeek, calNumb, wrapperCalMonthNumb;
 	public Panel[] calMonthNubm;
 	public Panel routeLeftPane, routeRightPane, monthPane;		// Панели для Левой, Правой кнопок. Панель обертка для Панелей Лейблов Месяцев
