@@ -540,17 +540,17 @@ public class MyCalendar extends MouseAdapter implements ActionListener {
 // Устанавливаем количество объектов на одно и тоже время
 			main.week.setCountObjInDayWeek(sourse.getText());
 		}
-//		for(SaveData sd : main.windowCN.listSaveObj) {
+//		for(SaveData sd : main.windowCN2.listSaveObj) {
 //			if(sourse.getText().equals(sd.day) && month.getText().equals(sd.month)) {
-//				main.windowCN.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//				main.windowCN2.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
 //						sd.name, sd.time, sd.note);
 //			}
 //			else if(sourse.getText().equals(sd.day) && month.getText().equals(sd.month)) {
-//				main.windowCN.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//				main.windowCN2.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
 //						sd.name, sd.time, sd.note);
 //			}
 //			else if(sourse.getText().equals(sd.day) && month.getText().equals(sd.month)) {
-//				main.windowCN.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//				main.windowCN2.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
 //						sd.name, sd.time, sd.note);
 //			}
 //

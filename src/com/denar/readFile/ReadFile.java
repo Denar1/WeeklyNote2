@@ -93,7 +93,7 @@ public class ReadFile {
 
 //        try {
 //            Thread.sleep(100);
-//            main.windowCN.showInformationToday();
+//            main.windowCN2.showInformationToday();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }

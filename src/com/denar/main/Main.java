@@ -1,18 +1,12 @@
 package com.denar.main;
 
 
-import com.denar.Files.SaveData;
 import com.denar.conteiners.*;
-import com.denar.readFile.ReadFile;
-import javafx.event.Event;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Calendar;
 
 
 public class Main extends Frame {
@@ -20,7 +14,7 @@ public class Main extends Frame {
 
 	public Panel panelTop, panelBottom;
 
-	public WindowCreateNote windowCN;
+	public WindowCreateNote2 windowCN2;
 	public SideMenu sideMenu;
 	public MyCalendar calendar;
 	public Week week;
@@ -41,7 +35,7 @@ public class Main extends Frame {
 
 
 		sideMenu = new SideMenu(this);
-		windowCN = new WindowCreateNote(this);
+		windowCN2 = new WindowCreateNote2(this);
 
 		calendar = new MyCalendar(this);	// класс календарь
 		week = new Week(this);				// класс неделя
@@ -49,8 +43,8 @@ public class Main extends Frame {
 		eventIL = new EventItemListener(this);
 
 
-		windowCN.readFile();
-		windowCN.panelCNTop.setData(null, null, null,
+		windowCN2.readFile();
+		windowCN2.panelObj.setData(null, null, null,
 				null, null, null, null);
 
 		week.setCountObjInDayWeek(null);
@@ -72,7 +66,7 @@ public class Main extends Frame {
 		panelBottom.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 0));
 
 
-		panelTop.add(windowCN.panelCreateNote);
+		panelTop.add(windowCN2.panelCreateNote);
 		panelTop.add(sideMenu.panelSideMenu);					// добавление БМ и К
 		panelTop.add(calendar.panelCalendar);					// в верхнию панель
 

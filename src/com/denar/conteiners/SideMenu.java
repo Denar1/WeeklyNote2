@@ -270,7 +270,7 @@ public class SideMenu implements ActionListener, ItemListener {
 
 
 
-			main.windowCN.listSaveObj.add(new SaveData(main, dayCh.getSelectedItem(), monthCh.getSelectedItem(),
+			main.windowCN2.listSaveObj.add(new SaveData(main, dayCh.getSelectedItem(), monthCh.getSelectedItem(),
 					yearCh.getSelectedItem(), objectTF.getText(), nameCh.getSelectedItem(),
 					timeList.getSelectedItem(), noteTA.getText()));
 
@@ -316,7 +316,7 @@ public class SideMenu implements ActionListener, ItemListener {
 
 
 			panelSideMenu.setVisible(false);
-			main.windowCN.panelCreateNote.setVisible(true);
+			main.windowCN2.panelCreateNote.setVisible(true);
 
 			main.panelTop.validate();
 
@@ -410,7 +410,7 @@ public class SideMenu implements ActionListener, ItemListener {
 
 
 			panelSideMenu.setVisible(false);
-			main.windowCN.panelCreateNote.setVisible(true);
+			main.windowCN2.panelCreateNote.setVisible(true);
 
 			main.panelTop.validate();
 

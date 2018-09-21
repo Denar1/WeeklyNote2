@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Week extends MouseAdapter {
 
@@ -450,7 +449,7 @@ public class Week extends MouseAdapter {
 //		listLabelNumDaysWeek[listLabelNumDaysWeek.length -1].getText();
 
 // Проходим в цикле по объеткам
-		for(SaveData sd : main.windowCN.listSaveObj) {
+		for(SaveData sd : main.windowCN2.listSaveObj) {
 
 //			flagDay = sd.NUMBER;
 
@@ -507,16 +506,16 @@ public class Week extends MouseAdapter {
 
 // Зпаускаем 2 цикл в котором сравниваем выбранный объект sd из первого цикла
 // с остальными объетками
-				while (i < main.windowCN.listSaveObj.size()) {
+				while (i < main.windowCN2.listSaveObj.size()) {
 
 
 // Условие: Если объект sd совпадает по дню, месяцу и времени с другим
 // увеличиваем переменную количества объектов
-					if (sd.day.equals(main.windowCN.listSaveObj.get(i).day) &&
-							sd.month.equals(main.windowCN.listSaveObj.get(i).month) &&
-							sd.time.equals(main.windowCN.listSaveObj.get(i).time)) {
+					if (sd.day.equals(main.windowCN2.listSaveObj.get(i).day) &&
+							sd.month.equals(main.windowCN2.listSaveObj.get(i).month) &&
+							sd.time.equals(main.windowCN2.listSaveObj.get(i).time)) {
 
-						if(!sd.equals(main.windowCN.listSaveObj.get(i)))
+						if(!sd.equals(main.windowCN2.listSaveObj.get(i)))
 							++countObj2;
 
 					}
@@ -566,10 +565,10 @@ public class Week extends MouseAdapter {
 // Показ объекта при нажатии на дне недели
 	public void showNote(String d, String m, String t) {
 		if (d != null && m != null) {
-			for (SaveData sd : main.windowCN.listSaveObj) {
+			for (SaveData sd : main.windowCN2.listSaveObj) {
 				if (sd.day.equals(d) && sd.month.equals(m) &&
 						sd.time.equals(t)) {
-					main.windowCN.panelCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+					main.windowCN2.panelObj.setData(sd.day, sd.month, sd.year, sd.object,
 							sd.name, sd.time, sd.note);
 				}
 			}
@@ -578,14 +577,14 @@ public class Week extends MouseAdapter {
 //
 //			String curND = (main.calendar.currentNumDays + 1) + "";
 //
-//			for (SaveData sd : main.windowCN.listSaveObj) {
+//			for (SaveData sd : main.windowCN2.listSaveObj) {
 //				if (sd.day.equals(curND) &&
 //						sd.month.equals(main.calendar.monthList[main.calendar.currentMonth] + "")) {
-//					main.windowCN.panelCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//					main.windowCN2.panelObj.setData(sd.day, sd.month, sd.year, sd.object,
 //							sd.name, sd.time, sd.note);
 //				}
 //				else {
-//					main.windowCN.panelCNTop.setData(null, null, null,
+//					main.windowCN2.panelObj.setData(null, null, null,
 //							null, null, null, null);
 //				}
 //			}
@@ -628,17 +627,17 @@ public class Week extends MouseAdapter {
 		}
 
 
-//		for(SaveData sd : main.windowCN.listSaveObj) {
+//		for(SaveData sd : main.windowCN2.listSaveObj) {
 //			if(sourse.getText().equals(sd.day) && month.getText().equals(sd.month)) {
-//				main.windowCN.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//				main.windowCN2.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
 //						sd.name, sd.time, sd.note);
 //			}
 //			else if(sourse.getText().equals(sd.day) && month.getText().equals(sd.month)) {
-//				main.windowCN.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//				main.windowCN2.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
 //						sd.name, sd.time, sd.note);
 //			}
 //			else if(sourse.getText().equals(sd.day) && month.getText().equals(sd.month)) {
-//				main.windowCN.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
+//				main.windowCN2.panelLeftCNTop.setData(sd.day, sd.month, sd.year, sd.object,
 //						sd.name, sd.time, sd.note);
 //			}
 //

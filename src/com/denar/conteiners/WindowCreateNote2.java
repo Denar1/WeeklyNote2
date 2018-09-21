@@ -2,23 +2,24 @@ package com.denar.conteiners;
 
 import com.denar.Files.SaveData;
 import com.denar.main.Main;
-import com.denar.readFile.ReadFile;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class WindowCreateNote implements ActionListener {
+public class WindowCreateNote2 extends MouseAdapter implements ActionListener {
 
     Main main;
 
     public Panel panelCreateNote, panelCNBottom;
-    public PanelCNTop panelCNTop;
-    public Panel panelLeftLabelCNTop, panelRightLabelCNTop;
+    public PanelObj panelObj;
+    public Panel panelShowObjects;
 
 
     public Button buttonCN;
@@ -33,7 +34,7 @@ public class WindowCreateNote implements ActionListener {
 
 
 
-   public class PanelCNTop extends Panel {
+    public class PanelObj extends Panel {
 //       panelObj(String obj, String name, String date, String time) {
 //           this.setPreferredSize(new Dimension(250, 248));
 ////           this.setBackground(Color.yellow);
@@ -45,67 +46,70 @@ public class WindowCreateNote implements ActionListener {
 //
 //       }
 
-       public PanelCNTop() {
-           this.setPreferredSize(new Dimension(499, 248));
-       }
+        public PanelObj() {
+            this.setPreferredSize(new Dimension(489, 30));
+            this.setBackground(new Color(0xfcfcfc));
+        }
 
-// Установка данных переменных
-       public void setData(String day, String month, String year,
-                           String obj, String name, String time, String note) {
-           data[0] = (day == null) ? "..." : day;
-           data[1] = (month == null) ? "..." : month;
-           data[2] = (year == null) ? "..." : year;
-           data[3] = (obj == null) ? "..." : obj;
-           data[4] = (name == null) ? "..." : name;
-           data[5] = (time == null) ? "..." : time;
-           data[6] = (note == null) ? "..." : note;
+        // Установка данных переменных
+        public void setData(String day, String month, String year,
+                            String obj, String name, String time, String note) {
+            data[0] = (day == null) ? "..." : day;
+            data[1] = (month == null) ? "..." : month;
+            data[2] = (year == null) ? "..." : year;
+            data[3] = (obj == null) ? "..." : obj;
+            data[4] = (name == null) ? "..." : name;
+            data[5] = (time == null) ? "..." : time;
+            data[6] = (note == null) ? "..." : note;
 
-           repaint();
-       }
-
-// Отрисовка данных в панели
-       @Override
-       public void paint(Graphics g) {
-           super.paint(g);
-           g.drawString("Объект: ", 10, 20);
-           g.drawString(data[0] + " " + data[1] + " " + data[2], 100, 80);
-
-           g.drawString("Имя: ", 10, 50);
-           g.drawString(data[3], 100, 20);
-
-           g.drawString("Дата: ", 10, 80);
-           g.drawString(data[4], 100, 50);
-
-           g.drawString("Время: ", 10, 110);
-           g.drawString(data[5], 100, 110);
-
-           g.drawString("Примечание: ", 250, 20);
-           g.drawString(data[6], 250, 40);
+            repaint();
+        }
 
 
-       }
+//         Отрисовка данных в панели
+        @Override
+        public void paint(Graphics g) {
+            super.paint(g);
+            g.drawString("Объект: ", 10, 20);
+            g.drawString(data[3], 70, 20);
+
+            g.drawString("Имя: ", 10, 50);
+            g.drawString(data[4], 70, 50);
+
+            g.drawString("Дата: ", 10, 80);
+            g.drawString(data[0] + " " + data[1] + " " + data[2], 70, 80);
+
+            g.drawString("Время: ", 10, 110);
+            g.drawString(data[5], 70, 110);
+
+            g.drawString("Примечание: ", 250, 20);
+            g.drawString(data[6], 250, 40);
+
+
+        }
+
 
 // Конец Внутреннего класса
-   }
+    }
 
 
 
 
-// Начало Конструктора
-    public WindowCreateNote(Main main) {
+    // Начало Конструктора
+    public WindowCreateNote2(Main main) {
 
         this.main = main;
 
-        panelCNTop = new PanelCNTop();
 
         panelCreateNote = new Panel();
-
         panelCNBottom = new Panel();
+        panelShowObjects = new Panel();
+        panelObj = new PanelObj();
 
         buttonCN = new Button("+ Новая Заметка");
 
 
-        panelCreateNote.setBackground(new Color(0xfcfcfc));
+        panelCreateNote.setBackground(new Color(0xE7E7E7));
         panelCreateNote.setBounds(0, 0, 499, 298);
         panelCreateNote.setLayout(new BorderLayout());
 
@@ -115,6 +119,14 @@ public class WindowCreateNote implements ActionListener {
 
 
 
+        panelShowObjects.setPreferredSize(new Dimension(499, 248));
+        panelShowObjects.setLayout(new FlowLayout());
+
+
+
+        panelObj.addMouseListener(this);
+
+
         buttonCN.setPreferredSize(new Dimension(120, 30));
         buttonCN.setBackground(new Color(0xcccccc));
         buttonCN.addActionListener(this);
@@ -122,18 +134,20 @@ public class WindowCreateNote implements ActionListener {
 
         panelCNBottom.add(buttonCN);
 
-        panelCreateNote.add(panelCNTop, BorderLayout.CENTER);
-        panelCreateNote.add(panelCNBottom, BorderLayout.SOUTH);
+        panelShowObjects.add(panelObj);
 
+//        panelCreateNote.add(panelObj, BorderLayout.CENTER);
+        panelCreateNote.add(panelCNBottom, BorderLayout.SOUTH);
+        panelCreateNote.add(panelShowObjects, BorderLayout.CENTER);
 
 
 
 // Конец Конструктора
-   }
+    }
 
 
 
-// Метод читает файл и записывает в объект данные и создает массив объектов
+    // Метод читает файл и записывает в объект данные и создает массив объектов
     public void readFile() {
         String str;
         String object = null;
@@ -289,7 +303,7 @@ public class WindowCreateNote implements ActionListener {
 
 
 
-// Обработка событий при нажатии на кнопку
+    // Обработка событий при нажатии на кнопку
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -303,7 +317,38 @@ public class WindowCreateNote implements ActionListener {
     }
 
 
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+        int h = panelObj.getHeight();
+
+        if(h != 130) {
+
+            while (h != 130) {
+                try {
+                    panelObj.setSize(panelObj.getWidth(), (h += 10));
+                    Thread.sleep(13);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
+
+
+        }
+        else {
+            while (h != 30) {
+                try {
+                    panelObj.setSize(panelObj.getWidth(), (h -= 10));
+                    Thread.sleep(12);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }
+    }
+
 
 
 // Конец Класса
 }
+
