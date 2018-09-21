@@ -594,6 +594,8 @@ public class Week extends MouseAdapter {
 
 
 
+
+// Обработка событий мыши при нажатии на Label недели
 	public Label eL;
 
 	public void mousePressed(MouseEvent e) {
@@ -609,6 +611,9 @@ public class Week extends MouseAdapter {
 						String m = main.calendar.month.getText();
 						String t = listLabelTime[j].getText();
 
+
+// Если первый день недели больше дня недели выбранного Label
+// тогда показать предыдущий месяц
 						if(getNumberFirstDayMyWeek(null) > Integer.parseInt(d)) {
 							showNote(d, main.calendar.monthList[(main.calendar.currentMonth + 1)], t);
 							break found;

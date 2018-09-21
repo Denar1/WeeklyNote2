@@ -293,7 +293,7 @@ public class MyCalendar extends MouseAdapter implements ActionListener {
 	}
 
 
-	public int dayOfMonth(int m) {
+	public int daysInMonth(int m) {
 		if(m == 4 || m == 6 || m == 9 || m == 11)
 			return 30;
 		else if(m == 2)
@@ -486,23 +486,31 @@ public class MyCalendar extends MouseAdapter implements ActionListener {
 		}
 		else {
 
+// Если нажата первая неделя
 			if((Integer.parseInt(sourse.getText()) + m) <= 7) {
-				int firstDayPreviousMonthNum = dayOfMonth(calendar.get(Calendar.MONTH) - 1) - m + 1;
+				int firstDayLastWeekPreviousMonth = daysInMonth(calendar.get(Calendar.MONTH) - 1) - m + 1;
 
 				for (int i = 0; i < main.week.listLabelNumDaysWeek.length; i++) {
-					if(firstDayPreviousMonthNum <= dayOfMonth((calendar.get(Calendar.MONTH) - 1))) {
-						main.week.listLabelNumDaysWeek[i].setText(firstDayPreviousMonthNum + "");
-						++firstDayPreviousMonthNum;
+
+// Если первый день последней недели месяца меньше или равен последнему дню месяца
+// то устанавливаем дни недели с firstDayLastWeekPreviousMonth до конца месяца
+					if(firstDayLastWeekPreviousMonth <= daysInMonth((calendar.get(Calendar.MONTH) - 1))) {
+						main.week.listLabelNumDaysWeek[i].setText(firstDayLastWeekPreviousMonth + "");
+						++firstDayLastWeekPreviousMonth;
 					}
 					else {
 						main.week.listLabelNumDaysWeek[i].setText(firstDayWeek + "");
 
+// Если первый день недели меньше последнего числа месяца
+// то увеличиваем его
+// иначе мы дошли до конца месяца и начался другой месяц
 						if (firstDayWeek < main.calendar.calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
 							firstDayWeek++;
 						else
 							firstDayWeek = 1;
 					}
 
+// В цикле обнуляем всю неделю чтобы заполнить новыми данными
 					for (int j = 0; j < main.week.listLabelDays[i].length; j++) {
 						main.week.listLabelDays[i][j].setText("");
 						main.week.listLabelDays[i][j].setBackground(main.week.fc);
@@ -529,7 +537,7 @@ public class MyCalendar extends MouseAdapter implements ActionListener {
 				}
 			}
 
-
+// Устанавливаем количество объектов на одно и тоже время
 			main.week.setCountObjInDayWeek(sourse.getText());
 		}
 //		for(SaveData sd : main.windowCN.listSaveObj) {
