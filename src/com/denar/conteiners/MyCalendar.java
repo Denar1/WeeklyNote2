@@ -40,7 +40,8 @@ public class MyCalendar extends MouseAdapter implements ActionListener {
 
 
 	public Color ccc = new Color(0xcccccc);
-	public Color previousDays = new Color(0xF35951);
+//	public Color previousDays = new Color(0xF35951);
+	public Color previousDays = Color.pink;
 	public Color df = new Color(0xAAFF75);
 	public Color currentD = new Color(0x9CD4F0);
 	public Color previousMonthColor = new Color(0xE7E7E7);
