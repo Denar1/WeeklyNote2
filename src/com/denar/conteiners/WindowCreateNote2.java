@@ -33,7 +33,7 @@ public class WindowCreateNote2 extends MouseAdapter implements ActionListener {
     public ArrayList<SaveData> listSaveObj = new ArrayList<>();
 
 
-
+// Панель объектов
     public class PanelObj extends Panel {
 //       panelObj(String obj, String name, String date, String time) {
 //           this.setPreferredSize(new Dimension(250, 248));
@@ -315,6 +315,7 @@ public class WindowCreateNote2 extends MouseAdapter implements ActionListener {
 
         main.panelTop.validate();
     }
+
 
 
     @Override
